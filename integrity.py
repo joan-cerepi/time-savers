@@ -29,7 +29,7 @@ def verify_integrity(args: argparse.Namespace) -> None:
                 hasher.update(chunk)
             file_digest = hasher.hexdigest()
 
-        if file_digest == args.hash:
+        if file_digest == args.hash.lower():
             print(f'{GREEN}The hashes match. Your file\'s integrity is intact.{RESET}')
         else:
             print(f'{RED}The hashes did not match. Your file is either corrupt or has been tampered with.{RESET}')
